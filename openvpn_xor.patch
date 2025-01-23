@@ -28,16 +28,15 @@ diff -Naur openvpn_new-2.4.4/src/openvpn/forward.c openvpn-2.4.4/src/openvpn/for
 diff -Naur openvpn_new-2.4.4/src/openvpn/options.c openvpn-2.4.4/src/openvpn/options.c
 --- openvpn_new-2.4.4/src/openvpn/options.c	2017-09-26 10:27:37.000000000 +0100
 +++ openvpn-2.4.4/src/openvpn/options.c	2017-12-04 19:31:47.245624150 +0000
-@@ -811,6 +811,9 @@
+@@ -826,5 +826,8 @@
      o->resolve_retry_seconds = RESOLV_RETRY_INFINITE;
      o->resolve_in_advance = false;
      o->proto_force = -1;
+     o->occ = true;
 +    o->ce.xormethod = 0;
 +    o->ce.xormask ="\0";
 +    o->ce.xormasklen = 1;
- #ifdef ENABLE_OCC
-     o->occ = true;
- #endif
+ #ifdef ENABLE_MANAGEMENT
 @@ -972,6 +975,9 @@
      setenv_str_i(es, "local_port", e->local_port, i);
      setenv_str_i(es, "remote", e->remote, i);
